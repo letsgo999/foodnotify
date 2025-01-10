@@ -42,8 +42,8 @@ if st.button('소진 날짜 계산'):
     if result:
         name, start_date, current_stock, daily_intake = result
         start_date = datetime.strptime(start_date, '%Y-%m-%d')
-        days_remaining = current_stock // daily_intake
-        expected_end_date = start_date + timedelta(days=days_remaining)
+        days_remaining = current_stock / daily_intake
+        expected_end_date = start_date + timedelta(days=int(days_remaining))
         st.write(f'{name}의 예상 소진 날짜는 {expected_end_date.date()}입니다.')
     else:
         st.error('해당 이름의 건강기능식품이 존재하지 않습니다.')
